@@ -9,7 +9,7 @@ def load_model():
         top_p=0.9,
         n_gpu_layers=-1,
         streaming=True,
-        n_ctx=4096,      # Context window size
+        n_ctx=2048,      # Context window size
         model_kwargs={
             "device": "cuda",
             "flash_attn": True,

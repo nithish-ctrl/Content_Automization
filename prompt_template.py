@@ -7,19 +7,19 @@ def prompt_template():
             ("system",
              """
             You are a helpful assistant that generates engaging Instagram Reel scripts based on a given topic.
-            Write a 90-second Instagram Reel script.
+            Write a 50-second Instagram Reel script.
 
             Topic: {topic}
 
             Structure:
-            1. Welcome and introduction
+            1. Hello and introduction to the topic
             2. Hook
             3. Elaborate explanation 
             4. How the {topic} works
             5. CTA
                 
             Guidelines:
-            - The script should be concise and engaging, suitable for a 90-second Reel.
+            - The script should be concise and engaging, suitable for a 50-second Reel.
             - Use a conversational tone to connect with the audience.
             - Include a hook at the beginning to grab attention.
             - Provide clear and informative content about the topic.
@@ -27,7 +27,7 @@ def prompt_template():
             - Be a little technical; But also keep it simple and relatable.
 
             Keep sentences clear.
-            Give the sentences in paragraphs. 
+            Give the sentences in paragraphs but use topics as subheadings. 
             And do not number them or split them according to the structure. Avoid the use of emojis. Avoid using hashtags. Avoid using the same word repeatedly. Use a variety of words to make the script more engaging.
             Medium pacing.
             Dont mention about the script and the reel. 
