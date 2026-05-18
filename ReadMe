@@ -16,6 +16,7 @@ check.py (For good coding practices)
 main.py (obviously)
 
 
-The maximum difficulty I felt was easily making the llama-ccp-python run on GPU. Had to make custom cuda-wheel without even knowing what it means. Then comes the video assembly part, which was only completed using the help of AI. Almost same with the subtitles generation part. In short, there was a lot of learning and difficulty in this mini-project. I would suggest you all to try it on your own too. Would be such a fun experinece to be honest. 
+The maximum difficulty I felt was easily making the llama-ccp-python run on GPU. Had to make custom
+cuda-wheel without even knowing what it means. Then comes the video assembly part, which was only completed using the help of AI. Almost same with the subtitles generation part. In short, there was a lot of learning and difficulty in this mini-project. I would suggest you all to try it on your own too. Would be such a fun experinece to be honest. 
 
 Lets come to the boring part now. 
