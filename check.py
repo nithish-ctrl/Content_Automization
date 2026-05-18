@@ -6,10 +6,11 @@ VIDEO_PATH = r"C:\Users\Nithish\Content_Automisation\output\final_reel.mp4"
 USER_DATA_DIR = r"C:\Users\Nithish\Content_Automisation\insta_session"
 
 CAPTION = """AI has revolutionized the way we create content, enabling us to produce engaging and informative videos with ease. 
-This reel was created using a combination of AI tools for script generation, text-to-speech conversion, subtitle generation, and video assembly. 
+This reel about {topic} was created using a combination of AI tools for script generation, text-to-speech conversion, subtitle generation, and video assembly. 
 The entire process was built fully with local AI tools, showcasing the incredible potential of artificial intelligence in content creation. 
-Like, Follow and Share for more of these videos !!! 
-#ai #python #automation #reels
+Like, Follow and Share for more of these videos and a tutorial on how to create them yourself !!! 
+Have a wonderful day ahead !!!
+#ai #python #automation #reels #{topic.replace(" ", "").lower()}
 """
 
 # MAIN SCRIPT
