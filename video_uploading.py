@@ -1,93 +1,83 @@
 from playwright.sync_api import sync_playwright
 import time
 
-def video_uploading():
-    pass
 # CONFIG
-
 VIDEO_PATH = r"C:\Users\Nithish\Content_Automisation\output\final_reel.mp4"
-
 USER_DATA_DIR = r"C:\Users\Nithish\Content_Automisation\insta_session"
 
-CAPTION = """
-{topic} : 
-Like, Follow and Share for more of these videos !!!
-#shorts #reels #viral #AI #technology #innovation #future #trending #explorepage 
-#fyp #contentcreator #instagood #instadaily #RAG #retrievalaugmentedgeneration #artificialintelligence 
-#machinelearning #deeplearning #neuralnetworks #datascience #bigdata 
-#analytics #automation #programming #coding
+CAPTION = """AI has revolutionized the way we create content, enabling us to produce engaging and informative videos with ease. 
+This reel was created using a combination of AI tools for script generation, text-to-speech conversion, subtitle generation, and video assembly. 
+The entire process was built fully with local AI tools, showcasing the incredible potential of artificial intelligence in content creation. 
+Like, Follow and Share for more of these videos !!! 
+#ai #python #automation #reels
 """
 
-
-# PLAYWRIGHT
+# MAIN SCRIPT
 with sync_playwright() as p:
-
-    # PERSISTENT BROWSER
     browser = p.chromium.launch_persistent_context(
         USER_DATA_DIR,
         headless=False
     )
-
     page = browser.new_page()
 
     # OPEN INSTAGRAM
-
     page.goto("https://www.instagram.com")
+    print("Opening Instagram...")
+    time.sleep(4)  # login if needed
 
-    print("\n================================================")
-    print("FIRST RUN ONLY:")
-    print("Login manually once.")
-    print("Session will be saved automatically.")
-    print("\n")
+    # OPEN CREATE (NEW POST)
+    print("Opening Create...")
 
-    time.sleep(20)
-
-    # OPEN CREATE PAGE
-
-    page.goto("https://www.instagram.com/create/select/")
-
-    time.sleep(5)
+    page.locator("svg[aria-label='New post']").click(force=True)
+    time.sleep(3)
 
     # UPLOAD VIDEO
+    print("Uploading video...")
 
-    file_input = page.locator("input[type='file']")
-    file_input.set_input_files(VIDEO_PATH)
+    with page.expect_file_chooser() as fc:
+        page.locator("text=Select from computer").click(force=True)
 
-    time.sleep(10)
+    file_chooser = fc.value
+    file_chooser.set_files(VIDEO_PATH)
 
-    # NEXT BUTTON 1
-
-    next_buttons = page.locator("text=Next")
-    next_buttons.nth(0).click()
-
+    # wait for upload processing
     time.sleep(5)
 
-    # NEXT BUTTON 2
+    # CROP STEP
+    print("Setting crop to 9:16...")
 
-    next_buttons = page.locator("text=Next")
-    next_buttons.nth(0).click()
+    page.locator("svg[aria-label='Select crop']").click(force=True)
+    time.sleep(2)
 
-    time.sleep(5)
+    page.locator("text=9:16").click(force=True)
+    time.sleep(2)
 
-       # CAPTION
+    # NEXT (CROP SCREEN)
+    print("Next (crop screen)...")
 
-    caption_box = page.locator(
-        "div[aria-label='Write a caption...']"
-    )
+    page.locator("text=Next").first.click(force=True)
+    time.sleep(2)
 
-    caption_box.click()
+    # NEXT (EDIT SCREEN)
+    print("Next (edit screen)...")
+
+    page.locator("text=Next").first.click(force=True)
+    time.sleep(2)
+
+    # CAPTION
+    print("Adding caption...")
+
+    caption_box = page.locator("div[contenteditable='true']").last
+    caption_box.click(force=True)
     caption_box.fill(CAPTION)
 
-    time.sleep(2)
-    share_button = page.locator("text=Share")
-    share_button.click()
+    time.sleep(3)
 
-    print("\nUploading reel...\n")
+    # SHARE
+    print("Sharing reel...")
+    page.locator("div[role='dialog']").get_by_role("button", name="Share").click(force=True)
+    print("Upload started...")
 
-    time.sleep(60)
-
-    print("\nUpload completed!\n")
-
+    time.sleep(500)
+    print("Upload completed!")
     browser.close()
-
-video_uploading()
