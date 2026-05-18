@@ -9,3 +9,5 @@ checkpoints/
 models/
 audio/
 check.py/
+videos/
+output/
