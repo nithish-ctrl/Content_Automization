@@ -8,3 +8,4 @@ model/
 checkpoints/
 models/
 audio/
+check.py/

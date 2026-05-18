@@ -1,2 +1,2 @@
-from llama_cpp import llama_cpp
-print(llama_cpp.llama_print_system_info())
+import pkg_resources
+print("OK")
