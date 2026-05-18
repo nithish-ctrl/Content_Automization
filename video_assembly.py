@@ -41,6 +41,29 @@ def video_assembly():
         )
     print("\nGenerating final reel...\n")
 
+    USE_SUBTITLES = False
+
+    if USE_SUBTITLES:
+
+        video_filter = (
+            f"scale=1080:1920:force_original_aspect_ratio=increase,"
+            f"crop=1080:1920,"
+            f"subtitles='{subtitle_path_ffmpeg}':"
+            f"force_style='Alignment=10,Fontsize=20,"
+            f"PrimaryColour=&HFFFFFF&,"
+            f"OutlineColour=&H000000&,"
+            f"BorderStyle=1,"
+            f"Outline=2,"
+            f"Shadow=1'"
+    )
+
+    else:
+
+        video_filter = (
+            "scale=1080:1920:force_original_aspect_ratio=increase,"
+            "crop=1080:1920"
+    )
+
     ffmpeg_command = [
         "ffmpeg",
         "-y",
@@ -64,8 +87,8 @@ def video_assembly():
         "-t", str(audio_duration),
 
     # SCALE FOR REELS / SHORTS
-        "-vf",
-        f"scale=1080:1920,subtitles='{subtitle_path_ffmpeg}'",
+       "-vf",
+        video_filter,
 
     # VIDEO ENCODER
         "-c:v", "libx264",

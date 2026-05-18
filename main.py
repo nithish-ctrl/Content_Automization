@@ -4,8 +4,8 @@ from subtitles_generation import subtitles_generation
 from video_assembly import video_assembly
 
 if __name__ == "__main__":
-    #topic = "Large Language Models"
-    script = generate_script(topic = "Small Language Models")
+    topic = "Artificial Intelligence"
+    script = generate_script(topic = topic)
     print(script)
     text_to_speech(script)
     subtitles_generation()
