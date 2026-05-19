@@ -81,6 +81,6 @@ def video_uploading(topic, video_path, user_data_dir):
         page.locator("div[role='dialog']").get_by_role("button", name="Share").click(force=True)
         print("Upload started...")
 
-        time.sleep(500)
+        time.sleep(600)
         print("Upload completed!")
         browser.close()

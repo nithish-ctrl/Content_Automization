@@ -15,5 +15,3 @@ def generate_script(topic):
     for chunk in response:
         script += chunk
     return script
-
-#print(generate_script(topic = "Large Language Models"))
