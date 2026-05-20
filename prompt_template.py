@@ -7,7 +7,7 @@ def prompt_template():
             ("system",
              """
             You are a helpful assistant that generates engaging Instagram Reel scripts based on a given topic.
-            Write a 50-second Instagram Reel script.
+            Write a 35-second Instagram Reel script.
 
             Topic: {topic}
 
@@ -19,7 +19,7 @@ def prompt_template():
             5. CTA
                 
             Guidelines:
-            - The script should be concise and engaging, suitable for a 50-second Reel.
+            - The script should be concise and engaging, suitable for a 35-second Reel.
             - Use a conversational tone to connect with the audience.
             - Include a hook at the beginning to grab attention.
             - Provide clear and informative content about the topic.

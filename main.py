@@ -10,12 +10,14 @@ subtitle_path = r"C:\Users\Nithish\Content_Automisation\audio\subtitles.srt"
 output_video_path = r"C:\Users\Nithish\Content_Automisation\output\final_reel.mp4"
 user_data_dir = r"C:\Users\Nithish\Content_Automisation\insta_session"
 
+
+topic = ["AI in Healthcare", "AI in Finance", "AI in Education", "AI in Entertainment", "Ethical AI", "Future of AI"]
 if __name__ == "__main__":
-    topic = "Artificial Intelligence"
-    script = generate_script(topic = topic)
-    print(script)
-    text_to_speech(script)
-    subtitles_generation()
-    video_assembly()
-    video_uploading(topic, output_video_path, user_data_dir)
+    for t in topic:
+        script = generate_script(topic = t)
+        print(script)
+        text_to_speech(script)
+        subtitles_generation()
+        video_assembly()
+        video_uploading(t, output_video_path, user_data_dir)
 
