@@ -34,7 +34,6 @@ def prompt_template():
             Conversational tone."""
              ),
              ("human"
-              #"{input}"
               )
         ]
     )

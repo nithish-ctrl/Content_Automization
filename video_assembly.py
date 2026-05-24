@@ -80,16 +80,20 @@ def video_assembly():
     if USE_SUBTITLES:
 
         video_filter = (
-            f"scale=1080:1920:force_original_aspect_ratio=increase,"
-            f"crop=1080:1920,"
-            f"subtitles='{subtitle_path_ffmpeg}':"
-            f"force_style='Alignment=10,Fontsize=20,"
-            f"PrimaryColour=&HFFFFFF&,"
-            f"OutlineColour=&H000000&,"
-            f"BorderStyle=1,"
-            f"Outline=2,"
-            f"Shadow=1'"
-        )
+        f"scale=1080:1920:force_original_aspect_ratio=increase,"
+        f"crop=1080:1920,"
+        f"subtitles='{subtitle_path_ffmpeg}':"
+        f"force_style='"
+        f"Alignment=10,"
+        f"Fontsize=32,"
+        f"Bold=1,"
+        f"PrimaryColour=&HFFFFFF&,"
+        f"OutlineColour=&H000000&,"
+        f"BorderStyle=1,"
+        f"Outline=4,"
+        f"Shadow=0,"
+        f"MarginV=250'"
+    )
 
     else:
 
