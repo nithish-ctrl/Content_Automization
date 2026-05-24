@@ -7,12 +7,12 @@ def video_uploading(topic, video_path, user_data_dir):
     VIDEO_PATH = video_path
     USER_DATA_DIR = user_data_dir
 
-    CAPTION = """AI has revolutionized the way we create content, enabling us to produce engaging and informative videos with ease. 
+    CAPTION = f"""AI has revolutionized the way we create content, enabling us to produce engaging and informative videos with ease. 
     This reel about {topic} was created using a combination of AI tools for script generation, text-to-speech conversion, subtitle generation, and video assembly. 
     The entire process was built fully with local AI tools, showcasing the incredible potential of artificial intelligence in content creation. 
     Like, Follow and Share for more of these videos and a tutorial on how to create them yourself !!! 
     Have a wonderful day ahead !!!
-    #ai #python #automation #reels #{topic.replace(" ", "").lower()}
+    #ai #python #automation #reels #{"".join(topic.split())}
     """
 
 # MAIN SCRIPT
@@ -44,7 +44,7 @@ def video_uploading(topic, video_path, user_data_dir):
         file_chooser.set_files(VIDEO_PATH)
 
         # wait for upload processing
-        time.sleep(5)
+        time.sleep(3)
 
         # CROP STEP
         print("Setting crop to 9:16...")
@@ -81,6 +81,8 @@ def video_uploading(topic, video_path, user_data_dir):
         page.locator("div[role='dialog']").get_by_role("button", name="Share").click(force=True)
         print("Upload started...")
 
-        time.sleep(600)
+        time.sleep(500)
         print("Upload completed!")
         browser.close()
+
+    
